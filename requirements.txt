@@ -1,5 +1,5 @@
 tensorboard==2.16.0
-tensorflow==2.16.1
+tensorflow
 altair==4.2.0
 attrs==22.1.0
 beautifulsoup4==4.11.1
@@ -57,7 +57,7 @@ sgmllib3k==1.0.0
 six==1.16.0
 smmap==5.0.0
 soupsieve==2.3.2.post1
-streamlit==1.13.0
+streamlit
 textblob==0.17.1
 tensorboard==2.16.0
 tinysegmenter==0.3
