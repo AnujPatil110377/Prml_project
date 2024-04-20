@@ -1,60 +1,54 @@
-cat <<EOF > README.md
-# Project Name
+Twitter Sentimental Analysis
+=========
 
-This is a collaborative project aimed at [brief description of project goals or objectives].
+This tool is an implementation of the [Twitter Sentiment analysis tool][1] 
+described on [Laurent Luce's blog][2].
 
-## Getting Started
+Requirements
+------------
+* [NLTK][3] and its dependencies
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+You may install NLTK by using pip:
 
-### Prerequisites
+    pip install nltk
 
-What things you need to install the software and how to install them.
 
-\`\`\`
-- Git
-- [Any other prerequisites, e.g., specific programming languages, libraries, etc.]
-\`\`\`
+How to use
+----------
 
-### Installing
+1. Clone this project
+2. Install NLTK (if it is not installed)
+3. Run the classifier
 
-A step by step series of examples that tell you how to get a development environment running.
+Or run the following commands:
 
-1. Clone the repository:
-   \`\`\`bash
-   git clone <repository_url>
-   \`\`\`
+    git clone git://github.com/victorneo/Twitter-Sentimental-Analysis.git twanalysis
+    cd twanalysis
+    pip install nltk
+    python classification.py
 
-2. Navigate into the project directory:
-   \`\`\`bash
-   cd project_directory_name
-   \`\`\`
 
-3. Create a new branch for your work:
-   \`\`\`bash
-   git checkout -b new_branch_name
-   \`\`\`
+Training data
+-------------
 
-4. Start making your changes and commit them as necessary.
+The training data is obtained from the Twitter Search API with the keywords
+`I am happy` and `I am sad` for happy (positive) and sad (negative) tweets.
+There is a total of 160 tweets used for training (80 / 80 distribution).
 
-### Usage
+To add more training data, add in new _happy_ tweets to `happy.txt` and _sad_ tweets
+to `sad.txt` using one line for each new tweet.
 
-Explain how to use the project, including any usage examples.
 
-\`\`\`
-[Usage instructions or examples]
-\`\`\`
+Test data
+---------
 
-### Contributing
+Test data are separated into `happy_test.txt` and `sad_test.txt`. A total of
+20 tweets are used for test (10 / 10 distribution).
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+To add more test data, add in new _happy_ tweets to `happy_test.txt` and _sad_
+tweets to `sad_test.txt` using one line for each new tweet.
 
-### License
 
-This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE.md) file for details.
-
-### Acknowledgments
-
-Mention any acknowledgments or resources that have been helpful.
-
-EOF
+[1]: http://www.laurentluce.com/posts/twitter-sentiment-analysis-using-python-and-nltk/
+[2]: http://www.laurentluce.com/
+[3]: http://www.nltk.org/
