@@ -90,7 +90,7 @@ def analyze_sentiment(text):
     st.write("Sentiment:", most_common_sentiment)
 
 def identify_abusive_users(csv_file):
-    abusive_users = {}
+    abusive_users = ()
     user_negative_counts = {}  # Dictionary to store negative counts for each user
 
     # Load CSV file
