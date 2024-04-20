@@ -54,7 +54,7 @@ sgmllib3k==1.0.0
 six==1.16.0
 smmap==5.0.0
 soupsieve==2.3.2.post1
-streamlit==1.13.0
+streamlit==0.62.1
 textblob==0.17.1
 tinysegmenter==0.3
 tldextract==3.3.1
