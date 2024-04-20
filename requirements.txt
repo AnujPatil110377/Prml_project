@@ -1,4 +1,4 @@
-keras-preprocessing
+keras.preprocessing.text
 tensorboard
 tensorflow
 altair==4.2.0
