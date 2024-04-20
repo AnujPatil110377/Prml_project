@@ -89,9 +89,9 @@ def analyze_sentiment(text):
     
     st.write("Sentiment:", most_common_sentiment)
 
-# Function to identify abusive users
 def identify_abusive_users(csv_file):
     abusive_users = []
+    user_negative_counts = {}  # Dictionary to store negative counts for each user
 
     # Load CSV file
     data = pd.read_csv(csv_file, encoding="latin1")
@@ -111,9 +111,15 @@ def identify_abusive_users(csv_file):
         # Predict using logistic regression model
         prediction = logistic_regression_model.predict(XV_comment)[0]
 
-        # Check if user is abusive
+        # Check if prediction is negative (0)
         if prediction == 0:
-            abusive_users.append(row['Name'])
+            user = row['Name']
+            # Update negative count for the user
+            user_negative_counts[user] = user_negative_counts.get(user, 0) + 1
+            
+            # Check if the negative count exceeds the threshold (3)
+            if user_negative_counts[user] >= 3:
+                abusive_users.append(user)
 
     return abusive_users
 
