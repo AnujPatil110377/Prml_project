@@ -59,7 +59,7 @@ def preprocess_text(text):
     text = re.sub(r"[^a-zA-Z]", " ", text)
     
     
-    return clean_text
+    return text
 
 # Function to analyze sentiment
 def analyze_sentiment(text):
