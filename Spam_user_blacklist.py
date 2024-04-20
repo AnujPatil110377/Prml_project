@@ -7,9 +7,17 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import joblib
 import os
+import zipfile
+
+# Extract models from Models.zip
+with zipfile.ZipFile('Models.zip', 'r') as zip_ref:
+    zip_ref.extractall('extracted_models')
+
+# Load Keras models and joblib models
 loaded_keras_models = []
 loaded_joblib_models = []
-models_folder = 'models_folder'
+models_folder = 'extracted_models'
+
 label_mapping = {0: "negative", 1: "neutral", 2: "positive"}
 
 class CustomTokenizer:
@@ -49,20 +57,13 @@ class CustomTokenizer:
             sequences.append(sequence)
         return sequences
 
+# Load tokenizer
+tokenizer = CustomTokenizer(num_words=5000)  # Set the num_words parameter accordingly
 
-for model_file in os.listdir(models_folder):
-    if model_file.endswith('.h5'):
-        model_path = os.path.join(models_folder, model_file)
-        loaded_model = tf.keras.models.load_model(model_path)
-        loaded_keras_models.append(loaded_model)
-
-    elif model_file.endswith('.pkl'):
-        model_path = os.path.join(models_folder, model_file)
-        loaded_model = joblib.load(model_path)
-        loaded_joblib_models.append(loaded_model)
-
+# Load vectorization object
 vectorization = joblib.load("Vector.pkl")
 
+# Define preprocess_text function
 def preprocess_text(text):
     text = text.lower()
     text = re.sub(r"[^a-zA-Z]", " ", text)
@@ -72,45 +73,61 @@ def preprocess_text(text):
     clean_text = " ".join(tokens)
     return clean_text
 
-data = pd.read_csv("comments.csv")
-negative_counts = {}
+# Define maxlen
+maxlen = 100  # Set the value accordingly
 
+# Load data from CSV
+data = pd.read_csv("tweets.csv",encoding="latin1")
+
+# Initialize predictions_counts dictionary
+predictions_counts = {}
+
+# Count predictions per user
+
+# Process each comment
 for index, row in data.iterrows():
-    user = row['user']
-    comment = row['comment']
+    user = row['Name']
+    comment = row['Tweet']
     
     preprocessed_comment = preprocess_text(comment)
     sequences = tokenizer.texts_to_sequences([preprocessed_comment])
     X_comment_padded = pad_sequences(sequences, maxlen=maxlen)
     
-    for model in loaded_keras_models:
-        predictions = model.predict(X_comment_padded)
-        predicted_labels = []
-        for prediction in predictions:
-            predicted_labels.append(label_mapping[np.argmax(prediction)])
-        negative_count = predicted_labels.count('negative')
-        if user in negative_counts:
-            negative_counts[user] += negative_count
-        else:
-            negative_counts[user] = negative_count
-        
-    XV_comment = vectorization.transform([preprocessed_comment])
+    # Predict using Keras models
+    keras_predictions = []
+    for model_file in os.listdir(models_folder):
+        if model_file.endswith('.h5'):
+            model_path = os.path.join(models_folder, model_file)
+            loaded_model = tf.keras.models.load_model(model_path)
+            loaded_keras_models.append(loaded_model)
+            predictions = loaded_model.predict(X_comment_padded)
+            predicted_labels = [np.argmax(prediction) for prediction in predictions]
+            keras_predictions.extend(predicted_labels)
     
-    for model in loaded_joblib_models:
-        predictions = model.predict(XV_comment)
-        predicted_labels = []
-        for prediction in predictions:
-            predicted_labels.append(label_mapping[prediction])
-        negative_count = predicted_labels.count('negative')
-        if user in negative_counts:
-            negative_counts[user] += negative_count
-        else:
-            negative_counts[user] = negative_count
+    # Predict using joblib models
+    joblib_predictions = []
+    for model_file in os.listdir(models_folder):
+        if model_file.endswith('.pkl'):
+            model_path = os.path.join(models_folder, model_file)
+            loaded_model = joblib.load(model_path)
+            loaded_joblib_models.append(loaded_model)
+            XV_comment = vectorization.transform([preprocessed_comment])
+            predictions = loaded_model.predict(XV_comment)
+            predicted_labels = [prediction for prediction in predictions]
+            joblib_predictions.extend(predicted_labels)
+    
+    # Combine predictions from all models
+    all_predictions = keras_predictions + joblib_predictions
+    majority_prediction = max(set(all_predictions), key = all_predictions.count)
+    
+    # Count predictions for each user
+    if user in predictions_counts:
+        predictions_counts[user].append(majority_prediction)
+    else:
+        predictions_counts[user] = [majority_prediction]
 
-abusive_users = []
-for user, count in negative_counts.items():
-    if count > 6:
-        abusive_users.append(user)
+# Identify abusive users
+abusive_users = [user for user, predictions in predictions_counts.items() if predictions.count(0) > 4]
 
 print("Abusive or Vulgar Users:")
 print(abusive_users)

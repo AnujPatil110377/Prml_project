@@ -1,0 +1,51 @@
+Name,Tweet,Sentiment
+Alice,This new bakery has amazing pastries!,Positive
+Alice,Feeling a little overwhelmed with work today.,Negative
+Alice,Looking forward to the weekend!,Neutral
+Alice,Finally finished that project!,Positive
+Alice,Movie night with friends!,Neutral
+Bob,"Ugh, my internet is so slow today.",Negative
+Bob,Traffic is terrible!,Negative
+Bob,Spilled my coffee this morning.,Negative
+Bob,"Lost my keys, can't find them anywhere!",Negative
+Bob,This weather is awful!,Negative
+Charlie,"Just learned a new recipe, can't wait to try it!",Neutral
+Charlie,The park is beautiful this time of year.,Positive
+Charlie,Feeling grateful for my friends and family.,Positive
+Charlie,"Interesting article I read today, learned something new!",Neutral
+Charlie,Enjoying a relaxing evening at home.,Neutral
+David,Disappointed with the customer service today.,Negative
+David,Feeling under the weather.,Negative
+David,My phone battery is dying!,Negative
+David,This meeting is dragging on forever.,Negative
+David,"Ugh, another busy week ahead.",Negative
+Emily,Feeling productive today!,Positive
+Emily,Love spending time with my pet.,Positive
+Emily,Going for a walk in the sunshine.,Positive
+Emily,Delicious dinner tonight!,Positive
+Emily,Can't wait to travel again!,Neutral
+Frank,"Lost my train ticket, need to find a new one!",Negative
+Frank,"My computer crashed, lost some work!",Negative
+Frank,Feeling stressed about deadlines.,Negative
+Frank,This project is taking longer than expected.,Negative
+Frank,Feeling frustrated today.,Negative
+Grace,"Just finished a great book, highly recommend it!",Neutral
+Grace,"Trying a new coffee shop today, excited to see what they have!",Neutral
+Grace,The power went out for a while earlier.,Negative
+Grace,Feeling a little better today.,Neutral
+Grace,Hopeful for the future!,Neutral
+Henry,Feeling discouraged about a recent setback.,Negative
+Henry,The news is depressing today.,Negative
+Henry,My car needs repairs.,Negative
+Henry,"Long day ahead, feeling tired.",Negative
+Henry,Feeling lost and unsure.,Negative
+Isabella,So happy it's Friday!,Positive
+Isabella,Made a new friend today!,Positive
+Isabella,"Trying a new restaurant tonight, wish me luck!",Neutral
+Isabella,Feeling creative today.,Neutral
+Isabella,"Watching a funny movie, much needed!",Positive
+Jack,My flight got delayed.,Negative
+Jack,Feeling homesick today.,Negative
+Jack,Can't seem to focus on work today.,Negative
+Jack,This presentation is going terribly.,Negative
+Jack,"Sprained my ankle, this is not my day!",Negative
