@@ -113,7 +113,7 @@ def analyze_sentiment(text):
     # import joblib
 
     # Step 1: Unzip the models.zip file
-    with zipfile.ZipFile('models.zip', 'r') as zip_ref:
+    with zipfile.ZipFile('Models.zip', 'r') as zip_ref:
         zip_ref.extractall('models_folder')
 
     # Step 2: Load Keras models and joblib models
