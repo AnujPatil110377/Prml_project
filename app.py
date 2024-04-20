@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 import re
-import nltk
-from nltk.corpus import stopwords
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
 import tensorflow as tf
@@ -58,7 +57,7 @@ class CustomTokenizer:
 def preprocess_text(text):
     text = text.lower()
     text = re.sub(r"[^a-zA-Z]", " ", text)
-    tokens = nltk.word_tokenize(text)
+    
     stop_words = set(stopwords.words('english'))
     tokens = [word for word in tokens if word not in stop_words]
     clean_text = " ".join(tokens)
