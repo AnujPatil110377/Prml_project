@@ -121,7 +121,7 @@ def identify_abusive_users(csv_file):
             if user_negative_counts[user] >= 3:
                 abusive_users.append(user)
 
-    return abusive_users
+    return abusive_users[1:]
 
 # Streamlit UI
 st.title("Prml Project")
