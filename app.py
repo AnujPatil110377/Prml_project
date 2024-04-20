@@ -58,9 +58,7 @@ def preprocess_text(text):
     text = text.lower()
     text = re.sub(r"[^a-zA-Z]", " ", text)
     
-    stop_words = set(stopwords.words('english'))
-    tokens = [word for word in tokens if word not in stop_words]
-    clean_text = " ".join(tokens)
+    
     return clean_text
 
 # Function to analyze sentiment
