@@ -133,7 +133,7 @@ if text_input:
     analyze_sentiment(text_input)
 
 # Upload CSV File and Identify Abusive Users
-with st.expander('Analyze CSV for Abosive Users'):
+with st.expander('Analyze CSV for Abusive Users'):
     csv_file = st.file_uploader('Upload file')
 
 if csv_file:
