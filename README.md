@@ -1,54 +1,92 @@
-Twitter Sentimental Analysis
-=========
 
-This tool is an implementation of the [Twitter Sentiment analysis tool][1] 
-described on [Laurent Luce's blog][2].
+# PRML Project
+# Exploring Sentiment Analysis on Twitter Dataset
 
-Requirements
-------------
-* [NLTK][3] and its dependencies
+In this project, we've harnessed traditional machine learning algorithms including **SVM, ANN, Naive Bayes, Decision Trees, Random Forest, and Logistic Regression** to discern sentiment in Twitter comments. Our approach encompasses two key features: **random text analysis** and the identification of **abusive users sourced from CSV files**.
 
-You may install NLTK by using pip:
+## Run Locally
 
-    pip install nltk
+Clone the project
 
-
-How to use
-----------
-
-1. Clone this project
-2. Install NLTK (if it is not installed)
-3. Run the classifier
-
-Or run the following commands:
-
-    git clone git://github.com/victorneo/Twitter-Sentimental-Analysis.git twanalysis
-    cd twanalysis
-    pip install nltk
-    python classification.py
+```bash
+  git clone https://github.com/AnujPatil110377/Prml_project/
+```
 
 
-Training data
--------------
 
-The training data is obtained from the Twitter Search API with the keywords
-`I am happy` and `I am sad` for happy (positive) and sad (negative) tweets.
-There is a total of 160 tweets used for training (80 / 80 distribution).
+## Authors
 
-To add more training data, add in new _happy_ tweets to `happy.txt` and _sad_ tweets
-to `sad.txt` using one line for each new tweet.
-
-
-Test data
----------
-
-Test data are separated into `happy_test.txt` and `sad_test.txt`. A total of
-20 tweets are used for test (10 / 10 distribution).
-
-To add more test data, add in new _happy_ tweets to `happy_test.txt` and _sad_
-tweets to `sad_test.txt` using one line for each new tweet.
+- [@Anuj_Vijay_Patil](https://github.com/AnujPatil110377)
+- [@Rohan_lambture](https://github.com/RohanLambture)
+- [@Sachin_raj](https://github.com/RohanLambture)
+- [@Ritesh_fageria](https://github.com/riteshfageriya)
+- [@Yashraj](https://github.com/yshrjnpm)
 
 
-[1]: http://www.laurentluce.com/posts/twitter-sentiment-analysis-using-python-and-nltk/
-[2]: http://www.laurentluce.com/
-[3]: http://www.nltk.org/
+## Work Distribution
+
+- Implementation of Models
+   - **Sachin**: 
+        - Svm
+        - Project Website
+    - **Rohan**:
+        - Logistic Regression
+        - Random Forest
+        - Report
+    - **Anuj**:
+        - Aritficial Neural Network
+        - Git Repository Handling
+        - Model Deployment on Streamlit
+    - **YashRaj**:
+        - Naive Bayes 
+        - Model Integration into one script
+        - Report
+    - **Ritesh**:
+        - Decision Tree
+        - Readme file
+
+
+
+
+## Screenshots
+
+![App Screenshot](https://raw.githubusercontent.com/AnujPatil110377/Prml_project/main/Home_page.jpg)
+
+
+
+## Demo
+
+**Model Hosted On streamlit.io Platform**
+   - https://prmlproject-pfevkhw8iirkw3rythzv2c.streamlit.app/
+**Usage Instructions**:
+ - Csv Analysis-  Make sure your **".Csv"** file has atleast two columns (**Name**,**Tweet**)
+
+
+## Features
+
+- **Text Analysis**
+   - ```bash
+     test.py # Contains Model integration to  Predict text on all models at once
+     ```
+- **Csv Analysis**
+   - ```bash
+     Spam_user_blacklist.py.py # Contains Model integration to Predict Csv data Identify abusive user with negative count >3
+     ```
+ 
+
+
+## Documentation
+
+[Report](https://linktodocumentation)
+
+
+## Optimizations
+
+- **Implemented varity of Data preprocessing method for data cleaning :**
+    - Tokenization 
+    - Stop word Removal
+    - Sign,Html,Punctuation Removal
+    - Vectorization
+- **Used Grid Search and Iterative method for hyper Parameter Tuning**
+    - We achieved impressive accuracies with **logistic regression** and **Decision trees surpassing** 80%, while **ANN** and **Naive Bayes** reached peaks of 70%
+
