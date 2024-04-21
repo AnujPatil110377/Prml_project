@@ -2,7 +2,7 @@
 # PRML Project
 # Exploring Sentiment Analysis on Twitter Dataset
 
-In this project, we've harnessed traditional machine learning algorithms including **SVM, ANN, Naive Bayes, Decision Trees, Random Forest, and Logistic Regression** to discern sentiment in Twitter comments.Our approach encompasses two key features: **random text analysis** and the identification of **abusive users sourced from CSV files**.
+In this project, we've harnessed traditional machine learning algorithms including **SVM, ANN, Naive Bayes, Decision Trees, Random Forest, and Logistic Regression** to discern sentiment in Twitter comments.giOur approach encompasses two key features: **random text analysis** and the identification of **abusive users sourced from CSV files**.
 
 ## Run Locally
 
@@ -77,7 +77,7 @@ Clone the project
 
 ## Documentation
 
-[Report](https://linktodocumentation)
+[Report](https://github.com/AnujPatil110377/Prml_project/blob/main/Prml_project_report.pdf)
 
 
 ## Optimizations
