@@ -77,7 +77,7 @@ Clone the project
 
 ## Documentation
 
-[Report](https://github.com/AnujPatil110377/Prml_project/blob/main/Prml_project_report.pdf)
+[Report](https://drive.google.com/file/d/1EXXSsQGcHSJT7xtMNurE5kJ-iNIc7iQP/view?usp=sharing)
 
 
 ## Optimizations
